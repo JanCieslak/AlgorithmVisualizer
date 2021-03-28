@@ -6,14 +6,17 @@ import (
 	mgl "github.com/go-gl/mathgl/mgl32"
 	_ "image/png"
 	"log"
+	"math/rand"
 	"runtime"
 	"strconv"
+	"time"
 )
 
 const WindowWidth = 1280
 const WindowHeight = 640
 
 func main() {
+	rand.Seed(time.Now().UTC().UnixNano())
 	runtime.LockOSThread()
 
 	window := initGlfw()
@@ -48,7 +51,7 @@ func main() {
 		renderer.End()
 
 		if !isDone {
-			go generateMaze(grid)
+			go GeneratePrimsMaze(grid)
 			isDone = true
 		}
 

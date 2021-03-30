@@ -62,7 +62,7 @@ func GeneratePrimsMaze(grid *Grid) {
 			walls = append(walls[:randomIndex], walls[randomIndex + 1:]...)
 			walls = append(walls, getUnvisitedWalls(randomWall.from, &visited, grid)...)
 			walls = append(walls, getUnvisitedWalls(randomWall.to, &visited, grid)...)
-			time.Sleep(50 * time.Millisecond)
+			time.Sleep(20 * time.Millisecond)
 		}
 	}
 }
